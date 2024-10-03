@@ -28,7 +28,7 @@ namespace Ejercicio1
                 int dni = Convert.ToInt32(tbDni.Text);
                 string nombre = tbNombre.Text;
                 Persona p = new Persona(dni, nombre);
-                nuevo.RegistrarVehiculo(p, patente);
+                RegistroVehiculo rv = nuevo.RegistrarVehiculo(p, patente);
             }
             catch (RangoDniIncorrectoException ex)
             {

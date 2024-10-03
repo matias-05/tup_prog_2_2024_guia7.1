@@ -10,19 +10,17 @@ namespace Ejercicio1.Models
     {
         int dni;
         public int DNI
-        { 
-            get 
+        {
+            get
             {
                 return dni;
             }
-            private set
-            { 
-                if (dni < 1000000) 
-                {
+            set
+            {
+                if (value <= 1000000)
                     throw new RangoDniIncorrectoException();
-                }
                 dni = value;
-            } 
+            }
         }
 
         public string Nombre { get; private set; }
