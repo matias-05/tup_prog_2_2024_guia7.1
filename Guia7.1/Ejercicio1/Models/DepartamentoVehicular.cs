@@ -30,6 +30,11 @@ namespace Ejercicio1.Models
                 return registros[idx];
             }
             return null;
-        }  
+        }
+        public void OrdenarRegistros()
+        {
+            registros.Sort();
+        }
+
     }
 }

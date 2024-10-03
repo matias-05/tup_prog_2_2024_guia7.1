@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +18,17 @@ namespace Ejercicio1.Models
             Patente = patente;
             Serie = serie.ToString();
             Propietario = propietario;
+
+            string conversion = patente.Replace(" ", "").Replace("-","").ToUpper();
+              
+            for (int i =0; i <conversion.Length; i++)
+            {
+                char c = conversion[i];
+                if (!(char.IsLetter(c) && i < 3 || char.IsDigit(c) && i <= 6 && i>2))
+                {
+                    throw new FormatoPatenteNoValidaException();
+                }
+            }    
         }
         public int CompareTo(object obj)
         {

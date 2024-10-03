@@ -8,10 +8,26 @@ namespace Ejercicio1.Models
 {
     internal class Persona
     {
-        public string DNI{ get; private set; }
+        int dni;
+        public int DNI
+        { 
+            get 
+            {
+                return dni;
+            }
+            private set
+            { 
+                if (dni < 1000000) 
+                {
+                    throw new RangoDniIncorrectoException();
+                }
+                dni = value;
+            } 
+        }
+
         public string Nombre { get; private set; }
 
-        public Persona(string dni, string nombre)
+        public Persona(int dni, string nombre)
         {
             DNI = dni;
             Nombre = nombre;
